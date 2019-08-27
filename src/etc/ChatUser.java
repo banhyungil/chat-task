@@ -1,4 +1,4 @@
-package chat_user;
+package etc;
 
 import java.io.Writer;
 

@@ -1,4 +1,4 @@
-package server;
+package etc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import chat_user.ChatUser;
 import log.LogPrint;
 import log.LogTypeEnum;
 
@@ -29,6 +28,9 @@ public class ChatServerThread extends Thread{
 		this.userList = userList;
 	}
 	
+	/**
+	 *
+	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -63,8 +65,13 @@ public class ChatServerThread extends Thread{
 					doJoin(tokens[1], pw);
 					break;
 				case "message":
+					if(tokens.length == 1) {
+						doMessage(" ");
+						break;
+					}
+						
 					doMessage(tokens[1]);
-					break;
+					continue;
 				case "quit":
 					doQuit();
 				}

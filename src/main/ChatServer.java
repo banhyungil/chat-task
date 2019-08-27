@@ -1,4 +1,4 @@
-package server;
+package main;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,14 +7,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import chat_user.ChatUser;
+import etc.ChatServerThread;
+import etc.ChatUser;
 import log.LogPrint;
 import log.LogTypeEnum;
 
 public class ChatServer {
 	
 	public static final int PORT = 8888;
-	public static final String IP_ADRESS = "192.168.1.6";
 	
 	public static void main(String[] args) throws Throwable{
 		// TODO Auto-generated method stub
