@@ -67,13 +67,15 @@ public class ChatServerThread extends Thread{
 				case "message":
 					if(tokens.length == 1) {
 						doMessage(" ");
-						break;
+						continue;
 					}
-						
-					doMessage(tokens[1]);
-					continue;
+					
+					String newMessage = request.replaceFirst(tokens[0], "");
+					doMessage(newMessage);
+					break;
 				case "quit":
 					doQuit();
+					return;
 				}
 				LogPrint.logPrint(LogTypeEnum.SERVER, "received :" + request );
 								

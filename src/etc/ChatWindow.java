@@ -43,7 +43,10 @@ public class ChatWindow implements Runnable{
 		pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), "UTF-8"), true);	//들어오는데로 flushing
 		nickName = name;
 	}
-
+	
+	/**
+	 * with run()
+	 */
 	public void show() {
 		// Button
 		buttonSend.setBackground(Color.GRAY);
@@ -87,6 +90,7 @@ public class ChatWindow implements Runnable{
 		frame.setVisible(true);
 		frame.pack();
 		
+		this.run();
 	}
 	
 	
@@ -98,6 +102,7 @@ public class ChatWindow implements Runnable{
 		
 		if("quit".equals(message)) {
 			pw.println("quit:");
+			frame.dispose();
 		}
 		
 		message += "\n";					//개행을 해준다
@@ -133,6 +138,6 @@ public class ChatWindow implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}//end finally
 	}
 }

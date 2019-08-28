@@ -15,6 +15,7 @@ import log.LogTypeEnum;
 public class ChatServer {
 	
 	public static final int PORT = 8888;
+	public static final String SERVER_IP = "127.0.0.1";
 	
 	public static void main(String[] args) throws Throwable{
 		// TODO Auto-generated method stub
@@ -26,10 +27,10 @@ public class ChatServer {
 			
 			InetAddress ia = InetAddress.getLocalHost();				//ip주소를 뽑아온다
 			
-			InetSocketAddress isa = new InetSocketAddress(ia,PORT);
+			InetSocketAddress isa = new InetSocketAddress(SERVER_IP,PORT);
 			serverSocket.bind(isa);										//server 자신의 ip와 특정 port를 바인드
 																		//다중 ip를 가진 server의 경우 특정 ip만 할당가능
-			LogPrint.logPrint(LogTypeEnum.SERVER, ia.getHostAddress() + ":" + PORT + " 연결시작");
+			LogPrint.logPrint(LogTypeEnum.SERVER, SERVER_IP + ":" + PORT + " 연결시작");
 			
 			while(true) {		
 				Socket socket = serverSocket.accept();						//요청을 기다린다. Deamon 상태로 진입
