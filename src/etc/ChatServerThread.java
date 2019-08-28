@@ -70,7 +70,7 @@ public class ChatServerThread extends Thread{
 						continue;
 					}
 					
-					String newMessage = request.replaceFirst(tokens[0], "");
+					String newMessage = request.replaceFirst(tokens[0] + ":", "");
 					doMessage(newMessage);
 					break;
 				case "quit":
